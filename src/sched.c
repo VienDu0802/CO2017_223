@@ -92,15 +92,8 @@ struct pcb_t * get_proc(void) {
 	 * Remember to use lock to protect the queue.
 	 * */
     	pthread_mutex_lock(&queue_lock);
-    	
-    	// if ready queue is empty move all pro from 
-		//run queue to ready queue
-    	if(empty(&ready_queue)){
-		while(!empty(&run_queue)){
-			enqueue(&ready_queue,dequeue(&run_queue));
-		}
-    	}
-	// dequeue pro from ready queue if it is not empty
+    
+	/////////////////////////////////////////////
     	if (!empty(&ready_queue)) {
         	proc = dequeue(&ready_queue);
     	}	
