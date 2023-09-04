@@ -16,9 +16,13 @@ void enqueue(struct queue_t * q, struct pcb_t * proc) {
 }
 
 struct pcb_t * dequeue(struct queue_t * q) {
+	/* TODO: return a pcb whose prioprity is the highest
+	 * in the queue [q] and remember to remove it from q
+	 * */
 		int size = q->size;
 		if(size == 0) {
-			printf("Queue is empty !!\n"); return NULL;
+			printf("Queue is empty !!\n");
+			return NULL;
 		}
 		if( size ==1 )
 		{
@@ -57,6 +61,7 @@ struct pcb_t * dequeue(struct queue_t * q) {
 				q->proc[size -1]=NULL;
 				q->size = size -1;
 				return return_proc;
+
 			}		
 	}
 	return NULL;
